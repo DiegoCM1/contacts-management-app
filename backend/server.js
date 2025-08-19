@@ -12,28 +12,28 @@ const contacts = [
         name: "Diego Colin",
         email: "luiscolin764@domu.ai",
         phone: "7151459328",
-        createdAt: "Today" 
+        createdAt: "Today"
     },
     {
         id: 2,
         name: "Camila Zancanella",
         email: "",
         phone: "7151459328",
-        createdAt: "Date" 
+        createdAt: "Date"
     },
     {
         id: 3,
         name: "Sam Altman",
         email: "",
         phone: "7151459328",
-        createdAt: "Date" 
+        createdAt: "Date"
     },
     {
         id: 4,
         name: "Elon Musk",
         email: "",
         phone: "7151459328",
-        createdAt: "Date" 
+        createdAt: "Date"
     },
 ]
 
@@ -51,23 +51,23 @@ app.get('/api/contacts/:name', (req, res) => {
     const name = req.params.name // Define const of the filter we wanna apply.
     const contact = contacts.find(c => c.name === name); // Seaches trought contacts to find the param name
 
-    if(!contact) return res.status(404).json({ error: "Not Found" });
+    if (!contact) return res.status(404).json({ error: "Not Found" }); // If there is no contact, show error.
     res.json(contact);
 })
 
 // POST Creates new contact, validates required fields
 app.post('/api/contacts/:id', (req, res) => {
-  res.send('POST request to homepage')
+    res.send('POST request to homepage')
 })
 
 // PUT Updates a contact
 app.put('/', (req, res) => {
-  res.send('PUT request to homepage')
+    res.send('PUT request to homepage')
 })
 
 // DELTE delete by ID
 app.delete('/api/contacts/:id', (req, res) => {
-  res.send('DELETE request to homepage')
+    res.send('DELETE request to homepage')
 })
 
 
