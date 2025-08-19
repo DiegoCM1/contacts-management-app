@@ -40,4 +40,26 @@ let contacts = [
 
 app.get('/api/health', (req, res) => res.json({ ok: true })); // Health
 
+
+// GET Retrieves all contacts. Filters by name
+app.get('/api/contacts', (req, res) => {
+  res.send('GET request to homepage')
+})
+
+// POST Creates new contact, validates required fields
+app.post('/api/contacts/:id', (req, res) => {
+  res.send('POST request to homepage')
+})
+
+// PUT Updates a contact
+app.put('/', (req, res) => {
+  res.send('PUT request to homepage')
+})
+
+// DELTE delete by ID
+app.delete('/api/contacts/:id', (req, res) => {
+  res.send('DELETE request to homepage')
+})
+
+
 app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`)); //Port where everything is being listened
