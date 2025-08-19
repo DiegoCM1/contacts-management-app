@@ -6,7 +6,7 @@ const PORT = 3000;
 app.use(cors()); // Allows all origins
 app.use(express.json()); // Parses JSON bodies
 
-let contacts = [
+const contacts = [
     {
         id: 1,
         name: "Diego Colin",
@@ -41,9 +41,18 @@ let contacts = [
 app.get('/api/health', (req, res) => res.json({ ok: true })); // Health
 
 
-// GET Retrieves all contacts. Filters by name
+// GET Retrieves all contacts.
 app.get('/api/contacts', (req, res) => {
-  res.send('GET request to homepage')
+    res.json(contacts);
+})
+
+// GET Retrieves contacts based on name.
+app.get('/api/contacts/:name', (req, res) => {
+    const name = req.params.name // Define const of the filter we wanna apply.
+    const contact = contacts.find(c => c.name === name); // Seaches trought contacts to find the param name
+
+    if(!contact) return res.status(404).json({ error: "Not Found" });
+    res.json(contact);
 })
 
 // POST Creates new contact, validates required fields
